@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/commit-activity/y/aghili/Aghili.Extensions.System.IO.Ports.svg?style=flat-square)](https://github.com/aghili/Aghili.Extensions.System.IO.Ports/commits/master)
 [![](https://img.shields.io/github/issues/aghili/Aghili.Extensions.System.IO.Ports.svg?style=flat-square)](https://github.com/aghili/Aghili.Extensions.System.IO.Ports/issues)
 
-Extension for Microsoft Syste.IO.Ports Package.
+Extension for Microsoft System.IO.Ports Package.
 
 In this package, the ability to call asynchronously is added to the classes that do not have asynchronous capability
 
