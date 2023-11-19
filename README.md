@@ -12,22 +12,53 @@ In this package, the ability to call asynchronously is added to the classes that
 
 ### SerialPort
 
-    `ReadAsync` :
-```public static ValueTask<int> ReadAsync(this SerialPort serialPort,byte[] buffer,CancellationToken cancellationToken)```
-    `ReadExistingAsync` :
-```public static async ValueTask<string> ReadExistingAsync(this SerialPort serialPort, CancellationToken cancellationToken)```
-    `ReadByteAsync` :
-```public static async ValueTask<byte> ReadByteAsync(this SerialPort serialPort, CancellationToken cancellationToken)```
-    `ReadCharAsync` :
-```public static async ValueTask<char> ReadCharAsync(this SerialPort serialPort, CancellationToken cancellationToken)```
-    `ReadLineAsync` :
-```public static async ValueTask<string> ReadLineAsync(this SerialPort serialPort, CancellationToken cancellationToken)```
-    `ReadTo` :
-```public static async ValueTask<string> ReadTo(this SerialPort serialPort, string value, CancellationToken cancellationToken)```
-    `ReadAsync` :
-```public static ValueTask<int> ReadAsync(this SerialPort serialPort, Memory<byte> buffer, CancellationToken cancellationToken)```
-    `ReadAsync` :
-```public static Task<int> ReadAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken)```
+`ReadAsync` :
+
+```
+public static ValueTask<int> ReadAsync(this SerialPort serialPort,byte[] buffer,CancellationToken cancellationToken)
+```
+
+`ReadExistingAsync` :
+
+```
+public static async ValueTask<string> ReadExistingAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+```
+
+`ReadByteAsync` :
+
+```
+public static async ValueTask<byte> ReadByteAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+```
+
+`ReadCharAsync` :
+
+```
+public static async ValueTask<char> ReadCharAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+```
+
+`ReadLineAsync` :
+
+```
+public static async ValueTask<string> ReadLineAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+```
+
+`ReadTo` :
+
+```
+public static async ValueTask<string> ReadTo(this SerialPort serialPort, string value, CancellationToken cancellationToken)
+```
+
+`ReadAsync` :
+
+```
+public static ValueTask<int> ReadAsync(this SerialPort serialPort, Memory<byte> buffer, CancellationToken cancellationToken)
+```
+
+`ReadAsync` :
+
+```
+public static Task<int> ReadAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken)
+```
 
 ## How to get
 
