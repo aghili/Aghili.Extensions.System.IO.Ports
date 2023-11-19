@@ -1,23 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
+	  <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
 	  <LangVersion>latest</LangVersion>
-	  <Title>Extension for install service</Title>
+	  <Title>Aghili System.IO.Ports Extensions</Title>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Authors>aghili.mostafa@gmail.com</Authors>
-	  <Description>Ability of manage application as windows service and access firewall with terminal commands.</Description>
+	  <Description>Extension for Microsoft Syste.IO.Ports Package.</Description>
 	  <Copyright>aghili.mostafa@gmail.com</Copyright>
-	  <PackageProjectUrl>https://github.com/aghili/Document.Service</PackageProjectUrl>
+	  <PackageProjectUrl>https://github.com/aghili/Aghili.Extensions.System.IO.Ports</PackageProjectUrl>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageTags>firewall;rule;install;windows;service;SC;Net7;Net6;netstandard;console;windowsservice</PackageTags>
 	  <AssemblyVersion>1.0</AssemblyVersion>
-	  <Version>1.2.3</Version>
+	  <Version>1.0.0</Version>
 	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	  <RepositoryUrl>https://github.com/aghili/Aghili.Extensions.System.IO.Ports</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+  </ItemGroup>
 
 </Project>
