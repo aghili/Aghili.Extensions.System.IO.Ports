@@ -6,14 +6,14 @@ namespace Aghili.Extensions.System.IO.Ports
 {
     public static class SerialPortExtension
     {
-        public static ValueTask<int> ReadAsync(this SerialPort serialPort,byte[] buffer,CancellationToken cancellationToken)
+        public static ValueTask<int> ReadAsync(this SerialPort serialPort,byte[] buffer,CancellationToken cancellationToken = default)
         {
             int lenght = serialPort.BytesToRead;
             if (lenght == 0)
                 return ValueTask.FromResult(0);
             return serialPort.BaseStream.ReadAsync(buffer,cancellationToken);
         }
-        public static async ValueTask<string> ReadExistingAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+        public static async ValueTask<string> ReadExistingAsync(this SerialPort serialPort, CancellationToken cancellationToken = default)
         {
             int lenght = serialPort.BytesToRead;
             if (lenght == 0)
@@ -23,7 +23,7 @@ namespace Aghili.Extensions.System.IO.Ports
             return serialPort.Encoding.GetString(buffer);
         }
 
-        public static async ValueTask<byte> ReadByteAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+        public static async ValueTask<byte> ReadByteAsync(this SerialPort serialPort, CancellationToken cancellationToken = default)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -38,7 +38,7 @@ namespace Aghili.Extensions.System.IO.Ports
             await serialPort.BaseStream.ReadAsync(buffer, cancellationToken).ConfigureAwait(false);
             return buffer[0];
         }
-        public static async ValueTask<char> ReadCharAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+        public static async ValueTask<char> ReadCharAsync(this SerialPort serialPort, CancellationToken cancellationToken = default)
         {
             int byte_count = serialPort.Encoding.GetMaxByteCount(1);
 
@@ -55,7 +55,7 @@ namespace Aghili.Extensions.System.IO.Ports
             await serialPort.BaseStream.ReadAsync(buffer, cancellationToken).ConfigureAwait(false);
             return serialPort.Encoding.GetChars(buffer)[0];
         }
-        public static async ValueTask<string> ReadLineAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+        public static async ValueTask<string> ReadLineAsync(this SerialPort serialPort, CancellationToken cancellationToken = default)
         {
             int byte_count = serialPort.Encoding.GetMaxByteCount(1);
 
@@ -80,7 +80,7 @@ namespace Aghili.Extensions.System.IO.Ports
 
             return result;
         }
-        public static async ValueTask<string> ReadTo(this SerialPort serialPort, string value, CancellationToken cancellationToken)
+        public static async ValueTask<string> ReadTo(this SerialPort serialPort, string value, CancellationToken cancellationToken = default)
         {
             int byte_count = serialPort.Encoding.GetMaxByteCount(1);
 
@@ -105,16 +105,47 @@ namespace Aghili.Extensions.System.IO.Ports
             return result;
         }
 
-        public static ValueTask<int> ReadAsync(this SerialPort serialPort, Memory<byte> buffer, CancellationToken cancellationToken)
+        public static ValueTask<int> ReadAsync(this SerialPort serialPort, Memory<byte> buffer, CancellationToken cancellationToken = default)
         {
             int lenght = buffer.Length;
             if (lenght == 0)
                 return ValueTask.FromResult(0);
             return serialPort.BaseStream.ReadAsync(buffer, cancellationToken);
         }
-        public static Task<int> ReadAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken)
+        public static Task<int> ReadAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken = default)
         {
             return serialPort.BaseStream.ReadAsync(buffer,offset,count, cancellationToken);
         }
+
+        public static ValueTask WriteAsync(this SerialPort serialPort, ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)
+        {
+            int lenght = buffer.Length;
+            if (lenght == 0)
+                return ValueTask.CompletedTask;
+            return serialPort.BaseStream.WriteAsync(buffer, cancellationToken);
+        }
+        public static ValueTask WriteAsync(this SerialPort serialPort, byte[] buffer, CancellationToken cancellationToken = default)
+        {
+            int lenght = buffer.Length;
+            if (lenght == 0)
+                return ValueTask.CompletedTask;
+            return serialPort.BaseStream.WriteAsync(buffer, cancellationToken);
+        }
+        public static Task WriteAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken = default)
+        {
+            return serialPort.BaseStream.WriteAsync(buffer, offset, count, cancellationToken);
+        }
+        public static ValueTask WriteLineAsync(this SerialPort serialPort, string value, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrEmpty(value))
+                return ValueTask.CompletedTask;
+         
+            value += Environment.NewLine;
+            
+            byte[] buffer = serialPort.Encoding.GetBytes(value);
+            
+            return serialPort.BaseStream.WriteAsync(buffer, cancellationToken);
+        }
+
     }
 }

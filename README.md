@@ -12,52 +12,80 @@ In this package, the ability to call asynchronously is added to the classes that
 
 ### SerialPort
 
+#### Read methods
+
 `ReadAsync` :
 
 ```cs
-public static ValueTask<int> ReadAsync(this SerialPort serialPort,byte[] buffer,CancellationToken cancellationToken)
+public ValueTask<int> ReadAsync(byte[] buffer,CancellationToken cancellationToken = default)
 ```
 
 `ReadExistingAsync` :
 
 ```cs
-public static async ValueTask<string> ReadExistingAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+public async ValueTask<string> ReadExistingAsync(CancellationToken cancellationToken = default)
 ```
 
 `ReadByteAsync` :
 
 ```cs
-public static async ValueTask<byte> ReadByteAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+public async ValueTask<byte> ReadByteAsync(CancellationToken cancellationToken = default)
 ```
 
 `ReadCharAsync` :
 
 ```cs
-public static async ValueTask<char> ReadCharAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+public async ValueTask<char> ReadCharAsync(CancellationToken cancellationToken = default)
 ```
 
 `ReadLineAsync` :
 
 ```cs
-public static async ValueTask<string> ReadLineAsync(this SerialPort serialPort, CancellationToken cancellationToken)
+public async ValueTask<string> ReadLineAsync(CancellationToken cancellationToken = default)
 ```
 
 `ReadTo` :
 
 ```cs
-public static async ValueTask<string> ReadTo(this SerialPort serialPort, string value, CancellationToken cancellationToken)
+public async ValueTask<string> ReadTo(string value, CancellationToken cancellationToken = default)
 ```
 
 `ReadAsync` :
 
 ```cs
-public static ValueTask<int> ReadAsync(this SerialPort serialPort, Memory<byte> buffer, CancellationToken cancellationToken)
+public ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
 ```
 
 `ReadAsync` :
 
 ```cs
-public static Task<int> ReadAsync(this SerialPort serialPort, byte[] buffer,int offset,int count, CancellationToken cancellationToken)
+public Task<int> ReadAsync(byte[] buffer,int offset,int count, CancellationToken cancellationToken = default)
+```
+
+#### Write methods
+
+`WriteLineAsync` :
+
+```cs
+public ValueTask WriteLineAsync(string value, CancellationToken cancellationToken = default)
+```
+
+`WriteAsync` :
+
+```cs
+public Task WriteAsync(byte[] buffer,int offset,int count, CancellationToken cancellationToken = default)
+```
+
+`WriteAsync` :
+
+```cs
+public ValueTask WriteAsync(byte[] buffer, CancellationToken cancellationToken = default)
+```
+
+`WriteAsync` :
+
+```cs
+public ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)
 ```
 
 ## How to get
