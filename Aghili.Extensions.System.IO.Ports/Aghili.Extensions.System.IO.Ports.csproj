@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+	  <LangVersion>latest</LangVersion>
+	  <Title>Extension for install service</Title>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Authors>aghili.mostafa@gmail.com</Authors>
+	  <Description>Ability of manage application as windows service and access firewall with terminal commands.</Description>
+	  <Copyright>aghili.mostafa@gmail.com</Copyright>
+	  <PackageProjectUrl>https://github.com/aghili/Document.Service</PackageProjectUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageTags>firewall;rule;install;windows;service;SC;Net7;Net6;netstandard;console;windowsservice</PackageTags>
+	  <AssemblyVersion>1.0</AssemblyVersion>
+	  <Version>1.2.3</Version>
+	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	  <RepositoryUrl>https://github.com/aghili/Aghili.Extensions.System.IO.Ports</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
